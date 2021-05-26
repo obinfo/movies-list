@@ -1,0 +1,44 @@
+.movieItem {
+ height: 120px;
+ width: 200px;
+ text-align: center;
+ background-color: cadetblue;
+}
+.actions {
+ width: 50%;
+ display: flex;
+ justify-content: space-evenly;
+ margin-left: 25%;
+}
+.title {
+ padding: 5px;
+ font-size: 125%;
+ font-weight: 500;
+}
+.category {
+ font-size: 90%;
+ font-style: italic;
+}
+
+.likes {
+ color: #70a1ff;
+}
+.likes:hover {
+ color: #5352ed;
+}
+
+.dislikes {
+ color: #ff6b81;
+}
+
+.dislikes:hover {
+ color: #ea2027;
+}
+
+.backgroundEven {
+ background-color: #ffffff;
+}
+
+.backgroundOdd {
+ background-color: #f1f2f6;
+}

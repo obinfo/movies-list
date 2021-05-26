@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { movies$ } from './data/movies';
+import MoviesList from './components/moviesList/moviesList';
 
 function App() {
  const [movies, setMovies] = useState([]);
@@ -17,17 +18,17 @@ function App() {
    });
  }, []);
 
- let content = <di>Wait for loading data...</di>;
+ /* const deleteOneMovie = (id) => {
+  return setMovies(() => {
+   return movies.filter((el) => el.id !== id);
+  });
+ };
+ */
+ let content = <div>Wait for loading data...</div>;
  if (!isLoading) {
-  content = (
-   <div className='App'>
-    {movies.map((el) => {
-     return <li key={el.id}>{el.title}</li>;
-    })}
-   </div>
-  );
+  content = <MoviesList movies={movies} />;
  }
- return <di>{content}</di>;
+ return <div>{content}</div>;
 }
 
 export default App;

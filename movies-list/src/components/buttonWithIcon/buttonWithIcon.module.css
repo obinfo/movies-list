@@ -1,0 +1,33 @@
+.btn {
+ display: inline-block;
+ justify-content: space-evenly;
+ width: 99%;
+}
+.likesAndDislikes {
+ display: flex;
+ justify-content: center;
+ margin: 2%;
+}
+.titleText {
+ margin: 50px;
+}
+.titleLike {
+}
+.titleDislike {
+}
+.icon svg {
+ width: 1rem;
+ height: 1rem;
+}
+.like {
+}
+.dislike {
+}
+.delete svg {
+ color: #ee5a24;
+ width: 1.5rem;
+ height: 1.5rem;
+}
+.delete svg:hover {
+ color: #ffc312;
+}

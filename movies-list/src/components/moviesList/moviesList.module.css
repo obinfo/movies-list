@@ -1,0 +1,8 @@
+.moviesList {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: flex-start;
+ width: 80%;
+ margin-left: auto;
+ min-width: 20%;
+}
