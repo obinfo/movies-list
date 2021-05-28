@@ -9,6 +9,7 @@ const MoviesList = (props) => {
     return (
      <Card key={movie.id}>
       <MovieItem
+       id={movie.id}
        backgroundType={index % 2 === 0 ? 'backgroundEven' : 'backgroundOdd'}
        title={movie.title}
        category={movie.category}
