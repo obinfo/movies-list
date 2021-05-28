@@ -42,3 +42,20 @@
 .backgroundOdd {
  background-color: #f1f2f6;
 }
+.actionsLikeAndDislike {
+ width: 50%;
+ display: flex;
+ justify-content: space-evenly;
+ margin-left: 25%;
+}
+.iconLikeAndDislike svg {
+ width: 1.7rem;
+ height: 1.7rem;
+}
+.toggleLike svg {
+ color: #54a0ff;
+}
+
+.toggleDislike svg {
+ color: #ee5253;
+}

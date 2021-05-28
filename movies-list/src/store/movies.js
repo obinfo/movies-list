@@ -19,6 +19,26 @@ const moviesSlice = createSlice({
    );
    state.movies = updateMovie;
   },
+  toggleLike(state, action) {
+   const updateMovies = state.movies.map((movie) => {
+    if (movie.id === action.payload + '') {
+     movie.likes += 1;
+     movie.dislikes -= 1;
+    }
+    return movie;
+   });
+   state.movies = updateMovies;
+  },
+  toggleDislike(state, action) {
+   const updateMovies = state.movies.map((movie) => {
+    if (movie.id === action.payload + '') {
+     movie.likes -= 1;
+     movie.dislikes += 1;
+    }
+    return movie;
+   });
+   state.movies = updateMovies;
+  },
  },
 });
 

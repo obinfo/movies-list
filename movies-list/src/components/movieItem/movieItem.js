@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { moviesActions } from '../../store/movies';
 import ButtonWithIcon from '../buttonWithIcon/buttonWithIcon';
@@ -7,11 +8,32 @@ import LikeIcon from '../icons/likeIcon';
 
 import classes from './movieItem.module.css';
 const MovieItem = (props) => {
+ const [isLiked, setIsLiked] = useState(false);
  const dispatch = useDispatch();
 
  const deleteHandler = (id) => {
-  console.log(id);
   dispatch(moviesActions.deleteMovie(id));
+ };
+ let contentLikeDislike = (
+  <div className={classes.toggleLike}>
+   <LikeIcon />
+  </div>
+ );
+ if (isLiked) {
+  contentLikeDislike = (
+   <div className={classes.toggleDislike}>
+    <DisLikeIcon />
+   </div>
+  );
+ }
+
+ const handlerLikeAndDislike = (id) => {
+  setIsLiked(!isLiked);
+  if (isLiked) {
+   dispatch(moviesActions.toggleDislike(id));
+  } else {
+   dispatch(moviesActions.toggleLike(id));
+  }
  };
 
  return (
@@ -30,10 +52,18 @@ const MovieItem = (props) => {
      </ButtonWithIcon>
     </div>
    </div>
-   <div onClick={() => deleteHandler(props.id)}>
-    <ButtonWithIcon iconType='delete' handlerClick>
-     <DeleteIcon />
-    </ButtonWithIcon>
+   <div className={classes.actionsLikeAndDislike}>
+    <div
+     className={classes.iconLikeAndDislike}
+     onClick={() => handlerLikeAndDislike(props.id)}
+    >
+     {contentLikeDislike}
+    </div>
+    <div onClick={() => deleteHandler(props.id)}>
+     <ButtonWithIcon iconType='delete' handlerClick>
+      <DeleteIcon />
+     </ButtonWithIcon>
+    </div>
    </div>
   </div>
  );
