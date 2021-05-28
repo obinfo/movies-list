@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialMoviesState = {
  movies: [],
  isLoading: true,
+ isMoviesEmpty: false,
+ isOpenFilter: false,
 };
 
 const moviesSlice = createSlice({
@@ -18,12 +20,15 @@ const moviesSlice = createSlice({
     (movie) => movie.id !== action.payload + ''
    );
    state.movies = updateMovie;
+   if (state.movies.length === 0) {
+    state.isMoviesEmpty = true;
+   }
   },
   toggleLike(state, action) {
    const updateMovies = state.movies.map((movie) => {
     if (movie.id === action.payload + '') {
-     movie.likes += 1;
-     movie.dislikes -= 1;
+     movie.likes++;
+     movie.dislikes = movie.dislikes > 0 ? movie.dislikes - 1 : movie.dislikes;
     }
     return movie;
    });
@@ -32,12 +37,24 @@ const moviesSlice = createSlice({
   toggleDislike(state, action) {
    const updateMovies = state.movies.map((movie) => {
     if (movie.id === action.payload + '') {
-     movie.likes -= 1;
-     movie.dislikes += 1;
+     movie.likes = movie.likes > 0 ? movie.likes - 1 : movie.likes;
+     movie.dislikes++;
     }
     return movie;
    });
    state.movies = updateMovies;
+  },
+  toggleOpenFilter(state) {
+   state.isOpenFilter = !state.isOpenFilter;
+  },
+  filterCategories(state, action) {
+   if (action.payload === 'all') {
+    state.movies = state.movies.slice();
+   }
+   const updateState = state.movies.filter(
+    (movie) => movie.category === action.payload
+   );
+   state.movies = updateState;
   },
  },
 });

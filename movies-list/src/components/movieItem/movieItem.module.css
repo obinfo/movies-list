@@ -38,19 +38,26 @@
 .backgroundEven {
  background-color: #ffffff;
 }
-
 .backgroundOdd {
  background-color: #f1f2f6;
 }
 .actionsLikeAndDislike {
+ margin-top: 3px;
  width: 50%;
  display: flex;
  justify-content: space-evenly;
  margin-left: 25%;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.17);
+ border-radius: 6px;
+ background-color: #f8efba;
 }
 .iconLikeAndDislike svg {
  width: 1.7rem;
  height: 1.7rem;
+}
+
+.iconLikeAndDislike svg:hover {
+ color: #3b3b98;
 }
 .toggleLike svg {
  color: #54a0ff;
