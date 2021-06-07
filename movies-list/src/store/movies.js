@@ -5,6 +5,8 @@ const initialMoviesState = {
  isLoading: true,
  isMoviesEmpty: false,
  isOpenFilter: false,
+ itemsPerPage: 5,
+ currentPage: 1,
 };
 
 const moviesSlice = createSlice({
@@ -55,6 +57,13 @@ const moviesSlice = createSlice({
     (movie) => movie.category === action.payload
    );
    state.movies = updateState;
+  },
+  itemsPerPageHandlerChange(state, action) {
+   state.itemsPerPage = action.payload && action.payload;
+  },
+  changeCurrentPage(state, action) {
+   console.log(action.payload);
+   state.currentPage = action.payload;
   },
  },
 });

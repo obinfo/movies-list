@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { moviesActions } from '../../store/movies';
+import { useSelector } from 'react-redux';
 
 const MultiSelect = (props) => {
- const dispatch = useDispatch();
  const movies = useSelector((state) => state.movies.movies);
  let categories = [];
  movies.map((movie) => {
